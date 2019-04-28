@@ -1,8 +1,7 @@
 {
-  "name": "graft-masternodes",
   "version": 2,
-  "public": true,
+  "name": "graft-masternodes",
   "builds": [
-    { "src": "index.js", "use": "@now/node" }
+    { "src": "*.js", "use": "@now/node" }
   ]
 }
