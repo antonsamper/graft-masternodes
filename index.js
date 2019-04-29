@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
         });
         const nodes = response.body.result.items.filter((node) => node.IsStakeValid);
 
-        let tier0Nodes = 0;
         let tier1Nodes = 0;
         let tier2Nodes = 0;
         let tier3Nodes = 0;
@@ -21,7 +20,6 @@ module.exports = async (req, res) => {
             else if (stake >= 150000) { tier3Nodes++ }
             else if (stake >= 90000) { tier2Nodes++ }
             else if (stake >= 50000) { tier1Nodes++ }
-            else { tier0Nodes++ }
         });
 
         res.setHeader('Content-Type', 'application/json');
@@ -30,7 +28,6 @@ module.exports = async (req, res) => {
         send(res, 200, {
             count: nodes.length,
             tiers: [
-                { "tier": "0", "nodes": tier0Nodes },
                 { "tier": "1", "nodes": tier1Nodes },
                 { "tier": "2", "nodes": tier2Nodes },
                 { "tier": "3", "nodes": tier3Nodes },
