@@ -34,6 +34,6 @@ module.exports = async (req, res) => {
             ]
         })
     } catch (err) {
-        send(res, 502, 'error fetching supernode list')
+        send(res, 502, err.message)
     }
 };
