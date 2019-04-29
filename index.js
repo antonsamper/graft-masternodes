@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
         nodes.forEach((node) => {
             const stake = Math.ceil(node.StakeAmount / 10000000000);
 
-            if (node.LastUpdateAge < 3600) {
+            if (stake >= 1) {
                 if (stake >= 250000) {
                     tier4Nodes++
                 } else if (stake >= 150000) {
