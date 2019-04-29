@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
             const stake = Math.ceil(node.StakeAmount / 10000000000);
                 if (stake >= 250000) { tier4Nodes++ }
                 else if (stake >= 150000) { tier3Nodes++ }
-                else if (stake >= 100000) { tier2Nodes++ }
+                else if (stake >= 90000) { tier2Nodes++ }
                 else if (stake >= 50000) { tier1Nodes++ }
                 else { tier0Nodes++ }
             }
