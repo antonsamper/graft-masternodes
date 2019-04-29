@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
         });
 
         res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Cache-Control:', 's-maxage=300, max-age=0');
+        res.setHeader('Cache-Control', 's-maxage=300, max-age=0');
 
         send(res, 200, {
             count: nodes.length,
