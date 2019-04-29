@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
         const response = await got.get(process.env.SUPERNODE_LIST, {
             json: true
         });
-        const nodes = response.body.result.items.filter((n) => n.IsStakeValid).length;
+        const nodes = response.body.result.items.filter((node) => node.IsStakeValid);
 
         let tier0Nodes = 0;
         let tier1Nodes = 0;
