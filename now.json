@@ -5,6 +5,6 @@
     { "src": "*.js", "use": "@now/node" }
   ],
   "env": {
-    "SUPERNODE_LIST": "@SUPERNODE_LIST"
+    "SUPERNODE_LIST": "@supernode_list"
   }
 }
