@@ -3,8 +3,8 @@ const { send } = require('micro');
 
 module.exports = async (req, res) => {
     try {
-        const response = await got(process.env.SUPERNODE_LIST, {
-            responseType: 'json'
+        const response = await got.get(process.env.SUPERNODE_LIST, {
+            json: true
         });
         const nodes = response.body.result.items;
 
