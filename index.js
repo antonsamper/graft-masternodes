@@ -17,18 +17,18 @@ module.exports = async (req, res) => {
             const stake = Math.ceil(node.StakeAmount / 10000000000);
 
             if(node.LastUpdateAge <= 3600 && stake >= 1) {
-                if (stake >= 250000) { tier4Nodes++ }
-                else if (stake >= 150000) { tier3Nodes++ }
-                else if (stake >= 90000) { tier2Nodes++ }
-                else if (stake >= 50000) { tier1Nodes++ }
+                if (stake < 90000) { tier1Nodes++ }
+                else if (stake < 150000) { tier2Nodes++ }
+                else if (stake < 250000) { tier3Nodes++ }
+                else { tier4Nodes++ }
             }
         });
 
         res.setHeader('Content-Type', 'application/json');
-        // res.setHeader('Cache-Control', 's-maxage=300, max-age=0');
+        res.setHeader('Cache-Control', 's-maxage=300, max-age=0');
 
         send(res, 200, {
-            count: nodes.length,
+            count: tier1Nodes + tier2Nodes + tier3Nodes + tier4Nodes,
             tiers: [
                 { "tier": "1", "nodes": tier1Nodes },
                 { "tier": "2", "nodes": tier2Nodes },
