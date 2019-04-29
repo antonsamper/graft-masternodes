@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-    res.set('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify([
         { tier: '1', nodes: '585', roi: '100%' },
         { tier: '2', nodes: '324', roi: '100.31%' },
