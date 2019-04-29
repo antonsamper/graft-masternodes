@@ -1,9 +1,10 @@
-module.exports = (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify([
-        { tier: '1', nodes: '585', roi: '100%' },
-        { tier: '2', nodes: '324', roi: '100.31%' },
-        { tier: '3', nodes: '213', roi: '91.39%' },
-        { tier: '4', nodes: '147', roi: '79.46' }
-    ]));
+const got = require('got');
+
+module.exports = async (req, res) => {
+    try {
+        res.setHeader('Content-Type', 'application/json');
+        return await got(process.env.SUPERNODE_LIST);
+    } catch (err) {
+        send(res, 502, 'error fetching supernode list')
+    }
 };

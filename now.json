@@ -3,5 +3,8 @@
   "name": "graft-masternodes",
   "builds": [
     { "src": "*.js", "use": "@now/node" }
-  ]
+  ],
+  "env": {
+    "SUPERNODE_LIST": "@SUPERNODE_LIST"
+  }
 }
