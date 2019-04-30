@@ -45,3 +45,4 @@ module.exports = async (req, res) => {
         send(res, 502, 'Error fetching supernodes list.')
     }
 };
+
