@@ -3,6 +3,11 @@ const { send } = require('micro');
 
 module.exports = async (req, res) => {
     try {
+        const stimulus = 112000;
+        const tier1Cost = 50000;
+        const tier2Cost = 90000;
+        const tier3Cost = 150000;
+        const tier4Cost = 250000;
         const response = await got.get(process.env.SUPERNODE_LIST, {
             json: true
         });
@@ -30,10 +35,10 @@ module.exports = async (req, res) => {
         send(res, 200, {
             count: tier1Nodes + tier2Nodes + tier3Nodes + tier4Nodes,
             tiers: [
-                { "tier": "1", "nodes": tier1Nodes },
-                { "tier": "2", "nodes": tier2Nodes },
-                { "tier": "3", "nodes": tier3Nodes },
-                { "tier": "4", "nodes": tier4Nodes }
+                { tier: '1', nodes: tier1Nodes, roi: (stimulus/4/(tier1Nodes*tier1Cost))*30 },
+                { tier: '2', nodes: tier2Nodes, roi: (stimulus/4/(tier2Nodes*tier2Cost))*30 },
+                { tier: '3', nodes: tier3Nodes, roi: (stimulus/4/(tie3Nodes*tier3Cost))*30 },
+                { tier: '4', nodes: tier4Nodes, roi: (stimulus/4/(tier4Nodes*tier4Cost))*30 }
             ]
         })
     } catch (err) {
