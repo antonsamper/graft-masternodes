@@ -37,11 +37,11 @@ module.exports = async (req, res) => {
             tiers: [
                 { tier: '1', nodes: tier1Nodes, roi: `${parseFloat((stimulus/4/(tier1Nodes*tier1Cost))*30).toFixed(2)}%` },
                 { tier: '2', nodes: tier2Nodes, roi: `${parseFloat((stimulus/4/(tier2Nodes*tier2Cost))*30).toFixed(2)}%` },
-                { tier: '3', nodes: tier3Nodes, roi: `${parseFloat((stimulus/4/(tie3Nodes*tier3Cost))*30).toFixed(2)}%` },
+                { tier: '3', nodes: tier3Nodes, roi: `${parseFloat((stimulus/4/(tier3Nodes*tier3Cost))*30).toFixed(2)}%` },
                 { tier: '4', nodes: tier4Nodes, roi: `${parseFloat((stimulus/4/(tier4Nodes*tier4Cost))*30).toFixed(2)}%` }
             ]
         })
     } catch (err) {
-        send(res, 502, 'Error fetching supernodes list.' + err.message)
+        send(res, 502, 'Error fetching supernodes list.')
     }
 };
