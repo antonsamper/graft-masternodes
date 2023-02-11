@@ -7,7 +7,7 @@
     "micro": "^9.3.3"
   },
   "devDependencies": {
-    "got": "^9.6.0"
+    "got": "^12.5.3"
   },
   "scripts": {
     "start": "micro"
